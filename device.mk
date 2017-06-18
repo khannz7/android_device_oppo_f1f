@@ -61,7 +61,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Input configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl
-
+     
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \

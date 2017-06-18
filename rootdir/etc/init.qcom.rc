@@ -25,7 +25,30 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+<<<<<<< HEAD:rootdir/etc/init.qcom.rc
 import /vendor/etc/init/hw/init.qcom-common.rc
+=======
+on init
+    export LD_SHIM_LIBS /system/vendor/lib64/lib-imsdpl.so|libshim_boringssl.so
+
+on boot
+    # change file owner for factory test
+    chown system system /sys/devices/virtual/touchscreen/touchscreen_dev/firmware_version
+    chown system system /sys/devices/virtual/touchscreen/touchscreen_dev/firmware_update
+    chown system system /sys/devices/virtual/touchscreen/touchscreen_dev/calibrate
+
+    # Notification LED
+    chown system system /sys/class/leds/red/blink
+    chown system system /sys/class/leds/green/blink
+    chown system system /sys/class/leds/blue/blink
+    chown system system /sys/class/leds/red/led_time
+    chown system system /sys/class/leds/green/led_time
+    chown system system /sys/class/leds/blue/led_time
+
+    # Touchscreen
+    chown system system /sys/devices/virtual/touchscreen/touchscreen_dev/gesture_ctrl
+    chmod 0660 /sys/devices/virtual/touchscreen/touchscreen_dev/gesture_ctrl
+>>>>>>> ff3021a... tomato: add volte support:rootdir/etc/init.target.rc
 
 on boot
     # Adaptive LMK
@@ -43,3 +66,44 @@ service psensord /system/vendor/bin/psensord
     user system
     group system
     oneshot
+
+on init
+
+service imsqmidaemon /system/bin/imsqmidaemon
+    class main
+    user system
+    socket ims_qmid stream 0660 system radio
+    group radio net_raw log qcom_diag
+
+service imsdatadaemon /system/bin/imsdatadaemon
+    class main
+    user system
+    socket ims_datad stream 0660 system radio
+    group system wifi radio inet net_raw log qcom_diag net_admin
+    disabled
+
+on property:sys.ims.QMI_DAEMON_STATUS=1
+    start imsdatadaemon
+
+service ims_rtp_daemon /system/bin/ims_rtp_daemon
+   class main
+   user system
+   socket ims_rtpd stream 0660 system radio
+   group radio net_raw diag qcom_diag log
+   disabled
+
+service imscmservice /system/bin/imscmservice
+   class main
+   user system
+   group radio net_raw diag qcom_diag log
+   disabled
+
+on property:sys.ims.DATA_DAEMON_STATUS=1
+    start ims_rtp_daemon
+    start imscmservice
+
+service ims_trigger /init.qti.ims.sh
+    class main
+    user root
+    oneshot
+

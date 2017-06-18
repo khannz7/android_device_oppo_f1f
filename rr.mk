@@ -23,9 +23,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/oppo/f1f/device.mk)
 
 # Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/rr/config/common_full_phone.mk)
 
-PRODUCT_NAME := lineage_f1f
+PRODUCT_NAME := rr_f1f
 PRODUCT_DEVICE := f1f
 PRODUCT_BRAND := OPPO
 PRODUCT_MODEL := F1f

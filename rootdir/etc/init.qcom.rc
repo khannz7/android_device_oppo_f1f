@@ -25,7 +25,8 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-import init.qcom-common.rc
+import init.qcom-common.rc 
+import init.qcom.ims.rc
 
 on boot
     # Adaptive LMK

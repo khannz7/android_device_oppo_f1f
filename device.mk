@@ -80,3 +80,6 @@ PRODUCT_COPY_FILES += \
 
 # Call the proprietary setup
 $(call inherit-product, vendor/oppo/f1f/f1f-vendor.mk)
+$(call inherit-product-if-exists, vendor/volte/volte.mk)
+$(call inherit-product-if-exists, vendor/volte/tomato/tomato-vendor.mk)
+$(call inherit-product-if-exists, vendor/yu/tomato/tomato-vendor.mk)

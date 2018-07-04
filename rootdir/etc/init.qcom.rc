@@ -25,10 +25,9 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-<<<<<<< HEAD:rootdir/etc/init.qcom.rc
 import init.qcom-common.rc 
 import init.qcom.ims.rc
-=======
+
 on init
     export LD_SHIM_LIBS /system/vendor/lib64/lib-imsdpl.so|libshim_boringssl.so
 
@@ -45,7 +44,6 @@ on boot
     chown system system /sys/class/leds/red/led_time
     chown system system /sys/class/leds/green/led_time
     chown system system /sys/class/leds/blue/led_time
->>>>>>> ff3021a... tomato: add volte support:rootdir/etc/init.target.rc
 
 on boot
     # Adaptive LMK

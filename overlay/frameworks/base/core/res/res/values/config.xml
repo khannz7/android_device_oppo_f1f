@@ -54,10 +54,7 @@
         <item>"/system/framework/arm64/boot-core-libart.oat"</item>
         <item>"/data/dalvik-cache/arm64/system@framework@boot.oat"</item>
         <item>"/data/dalvik-cache/arm64/system@framework@services.jar@classes.dex"</item>
-<<<<<<< HEAD
     </string-array>
-=======
-   </string-array>
 
     <!-- Flag specifying whether VoLTE is available on device -->
     <bool name="config_device_volte_available">true</bool>
@@ -74,5 +71,5 @@
          carrier provisioning. If false: hard disabled. If true: then depends on carrier
          provisioning, availability etc -->
     <bool name="config_carrier_vt_available">true</bool>
->>>>>>> ff3021a... tomato: add volte support
+
 </resources>

@@ -13,4 +13,4 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_f1f.mk
+    $(LOCAL_DIR)/dot_f1f.mk
